@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.domain;
 
 import java.util.Objects;
 
@@ -36,8 +36,9 @@ public class Ticket implements Comparable<Ticket> {
         return Objects.hash(from, to, price, timeFrom, timeTo);
     }
 
+    // Сравниваем по цене: если цена текущего меньше, он "меньше" (возвращаем отрицательное число)
     @Override
-    public int compareTo(Ticket other) {
-        return Integer.compare(this.price, other.price);
+    public int compareTo(Ticket o) {
+        return Integer.compare(this.price, o.price);
     }
 }

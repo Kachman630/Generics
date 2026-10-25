@@ -1,5 +1,6 @@
-package ru.netology;
+package ru.netology.manager;
 
+import ru.netology.domain.Ticket;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -23,6 +24,7 @@ public class AviaSouls {
         return tickets;
     }
 
+    // Поиск с сортировкой по цене (по умолчанию, благодаря Comparable)
     public Ticket[] search(String from, String to) {
         Ticket[] result = new Ticket[0];
         for (Ticket ticket : tickets) {
@@ -30,10 +32,11 @@ public class AviaSouls {
                 result = addToArray(result, ticket);
             }
         }
-        Arrays.sort(result);
+        Arrays.sort(result); // Сортирует массив, используя метод compareTo из класса Ticket
         return result;
     }
 
+    // Поиск с сортировкой по переданному компаратору
     public Ticket[] searchAndSortBy(String from, String to, Comparator<Ticket> comparator) {
         Ticket[] result = new Ticket[0];
         for (Ticket ticket : tickets) {
@@ -41,7 +44,7 @@ public class AviaSouls {
                 result = addToArray(result, ticket);
             }
         }
-        Arrays.sort(result, comparator);
+        Arrays.sort(result, comparator); // Сортирует массив, используя переданный компаратор
         return result;
     }
 }
